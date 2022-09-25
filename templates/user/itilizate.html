@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<br>
+<div style="overflow-x: hidden;" >
+<div class="row">
+	
+	{% for moun in user %}
+	  
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Informations</h5>
+			<hr>
+			
+			{% if moun.profile.foto %}	
+    		<p>Pic: <img src="{{moun.profile.foto.url}}" alt=""></p>
+			{% endif %}
+            <p>Nom:{{moun.profile.siyati}} </p>
+            <p>Prenom: {{moun.profile.nom}}</p>
+            <p>Email: {{moun.profile.email}}</p>
+			<p>tel: {{moun.profile.telefon}}</p>
+			
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Tous les projets</h5>
+			<hr>
+            <table class="table table-sm">
+                
+				
+                        <tr>
+						
+							
+						
+                         <th></th>
+						<th>Titre</th>
+						 <th></th>
+						</tr>
+						{% for pro in moun.projet_set.all %}
+						<tr>
+						<th><a href="{% url 'youn' pro.slug %}" class="btn btn-primary btn-sm btn-block" style="text-decoration:none;">READ MORE</a></th>
+						<th>{{pro.titre}}</th>
+						<th>
+						<th><a class="btn btn-sm btn-danger" href="{% url 'delete' pro.id %}">Supprimer</a></th>
+						</tr>
+						{% endfor %}
+            </table>
+			
+			<h1 style="text-align: center;padding: 10px"><a class="btn btn-primary  btn-sm btn-block" href="{% url 'kreyee' %}">Add Another project</a></h1>
+			
+		</div>
+	</div>
+</div>
+</div>
+{% endfor %}
+{% endblock content %}
+    

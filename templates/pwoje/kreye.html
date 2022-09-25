@@ -1,0 +1,112 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+<body>
+  <img src="https://i.ibb.co/XWdPc2X/wave-01.png" class="wave">
+  <div class="container">
+  <div style="overflow-x: hidden;" >
+<div class="row g-lg-1">
+   
+    {% if user.is_authenticated %}
+    
+            <form class="row row-cols-md-4"  action="/pwoje/kreyee" method="post" enctype="multipart/form-data">
+                <div class="col-md-4">
+                    <div class="form-control-lg">
+                            {% csrf_token %}
+                            
+                            {{form.as_p}}
+
+                            <div class="m-5">
+                                <button type="submit" class="btn btn-primary">KREYE</button>
+                            </div>
+
+                    </div>
+                </div>    
+                
+                
+            </form>
+   {% endif %}
+</div>
+</div>
+  </div>
+</body>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+
+  *{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+body{
+font-family: 'Poppins', sans-serif;
+
+}
+.wave{
+position: absolute;
+bottom: 0;
+left: 0;
+height: 110%;
+z-index: -1;
+}
+.container{
+	width: 100vw;
+	height: 70vh;
+	display: block;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 7rem;
+	padding: 0 2rem;
+}
+.btn:hover{
+	background-position: right;
+}
+
+@media screen and (max-width: 1050px){
+	.container{
+		grid-gap: 5rem;
+	}
+}
+@media screen and (max-width: 1000px){
+	form{
+		width: 290px;
+	}
+	.title{
+		margin: 8px 0;
+		font-size: 2.4rem;
+	}
+	.img img{
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	body{
+		background-color: #6b5cff;
+	}
+	.container{
+		grid-template-columns: 1fr;
+	}
+	.img{
+		display:none;
+	}
+	.wave{
+		display:none;
+	}
+	.login-content{
+		justify-content: center;
+		color: #6b5cff;
+	}
+	.form-login{
+		padding: 40px;
+		background-color: #fff;
+		width: 420px;
+		border-radius: 8px;
+		box-shadow: 3px 3px 15px rgba(88, 34, 160, 0.2);
+	}
+}
+  </style>
+
+{% endblock content %}

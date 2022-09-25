@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+ 
+
+
+{% for profil in Lis_itilizate %}
+
+{% if profil.profile %}
+<div class="card-group">
+  <div class="card">
+    <div class="custom-card card card mb-3 shadow" style="width: 18em;">
+      
+      {% if profil.profile.foto %}
+      <img src="{{profil.profile.foto.url}}" alt="Avatar" class="card-img-top ">
+      {% endif %}
+      <div class="card-body">
+  <h5 class="card-title">{{profil.profile.nom}} {{profil.siyati}}</h5>
+  <p class="card-text"><a href="{% url 'onprofile' profil.id %}" class="btn btn-primary mb">Profile</a></p>
+  </div>
+</div>
+</div>
+</div>
+ 
+
+
+
+    {% endif %}
+  {% endfor %}
+
+
+  <style>
+    
+	.mb.card-body{
+    text-align: center;
+}
+.mb.btn{
+    border-radius: 0;
+    box-shadow: 0.5px 1px 2px hsla(0, 0%, 20%, 1);
+}
+.mb.btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 5px hsla(0, 0%, 20%, 1);
+}
+.mb.card{
+    border-radius: 0px / 0px;
+    overflow: hidden;
+    box-shadow: 0.5px 1px 2px hsla(0, 0%, 20%, 1);
+}
+
+
+  </style>
+{% endblock content %}
+
+
+

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <p>eskew ta renmen efase komand sa </p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <a class="btn btn-warning" href="{% url 'acceuil'%}">NON</a>
+        <input class="btn btn-danger" type="submit" name="oui">
+    </form>
+{% endblock content %}
+    

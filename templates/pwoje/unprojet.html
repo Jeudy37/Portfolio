@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% block content %}
+<div style="overflow-x: hidden;" >
+<div class="container-fluid">
+	<div class="row">
+	  <div class="col-xl-6 col-lg-6 col-md-6" style="border:1px solid #ddd">
+		
+		{% if un.foto %}
+		<img src="{{un.foto.url}}" class="img-fluid">
+		{% endif %}
+			
+		
+	  </div>
+	  <div class="col-xl-6 col-lg-6 col-md-6" style="border:1px solid #ddd">
+		
+		{% if un.titre %}
+		<h3><strong>Titre:</strong>{{un.titre}}</h3>
+		{% endif %}
+		
+		{% if un.description %}
+		<p>Contenu: {{un.description}}</p>
+		{% endif %}
+		<p>Date: {{un.date}}</p>
+	
+		<p>{{un.kategori_set.all}}</p>
+		
+	  </div>
+	</div>
+</div>
+</div>
+
+{% endblock content %}
